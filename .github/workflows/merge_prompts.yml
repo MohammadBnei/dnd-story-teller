@@ -34,7 +34,7 @@ jobs:
               agents = yaml.safe_load(f)
 
           for agent in agents:
-              prompt_path = f"prompts/{agent['name']}.txt"
+              prompt_path = f"prompts/{agent['name']}.md"
               if os.path.exists(prompt_path):
                   with open(prompt_path, 'r') as f:
                       agent['prompt'] = f.read().strip()

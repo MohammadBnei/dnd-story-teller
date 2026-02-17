@@ -187,3 +187,7 @@
     - The DM Agent decides WHEN cosmic events trigger based on narrative readiness, not arbitrary turn counts
 
     - Knowledge is rewarded with gameplay advantages, not just lore'
+
+- name: master
+  description: Master Agent responsible of creating the story
+  prompt: ''
