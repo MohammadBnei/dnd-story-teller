@@ -4,7 +4,9 @@ on:
   push:
     paths:
       - 'prompts/**'
-
+  workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   merge:
     runs-on: ubuntu-latest
