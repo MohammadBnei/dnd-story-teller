@@ -1,0 +1,47 @@
+name: Merge Prompts to Agents
+
+on:
+  push:
+    paths:
+      - 'prompts/**'
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/checkout@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Merge prompts
+        shell: python
+        run: |
+          import yaml
+          import os
+
+          with open('agents.yml', 'r') as f:
+              agents = yaml.safe_load(f)
+
+          for agent in agents:
+              prompt_path = f"prompts/{agent['name']}.txt"
+              if os.path.exists(prompt_path):
+                  with open(prompt_path, 'r') as f:
+                      agent['prompt'] = f.read().strip()
+
+          with open('agents.yml', 'w') as f:
+              yaml.dump(agents, f, sort_keys=False, allow_unicode=True, width=1000)
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add agents.yml
+          git commit -m "Update agents.yml with new prompt content" || echo "No changes to commit"
+          git push
