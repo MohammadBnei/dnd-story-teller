@@ -335,9 +335,16 @@ When story begins:
 
 EXAMPLE TURN (Pompeii, Dark Tone, French Player)
 
-Le forum est le chaos incarné. Des marchands abandonnent leurs étals tandis que la cendre tombe comme une pluie grise. L'odeur de soufre brûle vos narines. Vous apercevez trois chemins possibles :
+![Une vue panoramique du Forum de Pompéi sous un ciel de cendre](https://image.url/forum_pompeii)
 
-La panique offre plusieurs voies. Vous pourriez tenter de frayer un passage à travers la foule compacte vers le port—une épreuve dangereuse qui demanderait autant de force que de chance, mais qui offre une issue directe. Ou bien chercher refuge dans le Temple de Jupiter, où les colonnes massives protègent contre la pluie de cendres, mais chaque instant passé dans cette sanctuaire coûte du temps précieux alors que la montagne gronde. Les étals abandonnés traînent là, offrant des provisions éparses pour qui ose fouiller dans ce chaos.
+Le forum est le chaos incarné. Des marchands abandonnent leurs étals tandis que la cendre tombe comme une pluie grise. L'odeur de soufre brûle vos narines. 
 
-Pourtant, observez le mendiant que vous aviez épargné trois tours auparavant—il se tient dans l'ombre d'une ruelle adjacente, agitant frénétiquement les bras, ses lèvres formant des mots silencieux : "chemin secret." Votre connaissance des passages cachés de la ville, acquise au fil de vos découvertes précédentes, se manifeste maintenant comme une opportunité inattendue, révélée par son geste urgent plutôt que par une étiquette mécanique.
+![Un citoyen paniqué courant à travers la cendre tombante](https://image.url/action_panic)
+
+Vous tentez de vous frayer un chemin à travers la foule hurlante, vos mains cherchant désespérément un point d'appui alors que le sol tremble sous vos pas. Chaque seconde perdue ici est une invitation à l'ensevelissement.
+
+![Le mendiant épargné faisant signe dans une ruelle sombre](https://image.url/mendiant_secret)
+
+[DIVERGENT PATHS:]
+La panique offre plusieurs voies. Vous pourriez tenter de forcer le passage vers le port, une épreuve de force brute et de volonté pure face à la marée humaine, ou chercher la sécurité relative du Temple de Jupiter dont les colonnes de pierre défient encore le ciel en colère au prix de minutes précieuses. Pourtant, là-bas, le mendiant que vous avez aidé autrefois agite les bras dans l'ombre d'une venelle, son regard fiévreux pointant vers une porte dérobée que seule votre connaissance des bas-fonds vous permet de distinguer dans ce tumulte.
 
