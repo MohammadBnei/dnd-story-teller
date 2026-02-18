@@ -233,11 +233,13 @@ Usage: Maintain continuity, build psychological profile, enable consequence call
 Tool 5: generate_image
 When to call: Every turn during IMAGE GENERATION step (exactly 3 calls per turn)
 Input format: { "query": "[detailed visual description of scene, character, or atmosphere]", "quality": [0, 1, or 2] }
+Output: { "url": "the url of the generated image" }
 Requirements:
 
 - Generate exactly 3 images per turn: 2 with quality: 0 (low), 1 with quality: 2 (high)
 - Style: DC comic book/graphic novel aesthetic—bold ink lines, dramatic shadows, stylized proportions, rich graphic detail
 - Constraint: Absolutely no text, letters, captions, typography, or speech bubbles in images
+- Incorporate the images with markdown link syntax "![alt text](image URL)"
 Usage: Create visual atmosphere and illustrate key scene elements to accompany narrative
 
 NPC RELATIONSHIP SYSTEM
