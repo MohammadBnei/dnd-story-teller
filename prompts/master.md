@@ -85,6 +85,7 @@ Immediately after scene description, call generate_image tool exactly 3 times to
 - 1 call with quality: 2 (high quality) for the key dramatic focal point or cinematic wide shot
 
 Style parameters for all images:
+
 - DC comic book/graphic novel aesthetic: bold ink lines, dramatic shadows, stylized proportions, rich graphics
 - Absolutely no text, letters, captions, typography, or speech bubbles in images
 - Content must match historical era and current scene tone
@@ -236,9 +237,9 @@ Usage: Maintain continuity, build psychological profile, enable consequence call
 
 Tool 5: generate_image
 When to call: Every turn during IMAGE GENERATION step (exactly 3 calls per turn)
-Input format: { "prompt": "[detailed visual description of scene, character, or atmosphere]", "quality": [0, 1, or 2] }
-Output: { "image_url": "[url]", "quality_used": [0-2] }
+Input format: { "query": "[detailed visual description of scene, character, or atmosphere]", "quality": [0, 1, or 2] }
 Requirements:
+
 - Generate exactly 3 images per turn: 2 with quality: 0 (low), 1 with quality: 2 (high)
 - Style: DC comic book/graphic novel aesthetic—bold ink lines, dramatic shadows, stylized proportions, rich graphic detail
 - Constraint: Absolutely no text, letters, captions, typography, or speech bubbles in images
@@ -297,6 +298,7 @@ OUTPUT FORMAT (EACH TURN)
 
 [IMAGES:]
 Three DC comic-style illustrations generated via generate_image tool calls:
+
 - Two low quality (quality=0): Atmospheric/environmental details or secondary elements
 - One high quality (quality=2): Cinematic focal point or dramatic wide shot
 Style: Bold ink lines, graphic novel aesthetic, dramatic shadows, rich visual texture
