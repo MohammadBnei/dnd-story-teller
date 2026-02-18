@@ -347,4 +347,3 @@ Vous tentez de vous frayer un chemin à travers la foule hurlante, vos mains che
 
 [DIVERGENT PATHS:]
 La panique offre plusieurs voies. Vous pourriez tenter de forcer le passage vers le port, une épreuve de force brute et de volonté pure face à la marée humaine, ou chercher la sécurité relative du Temple de Jupiter dont les colonnes de pierre défient encore le ciel en colère au prix de minutes précieuses. Pourtant, là-bas, le mendiant que vous avez aidé autrefois agite les bras dans l'ombre d'une venelle, son regard fiévreux pointant vers une porte dérobée que seule votre connaissance des bas-fonds vous permet de distinguer dans ce tumulte.
-
