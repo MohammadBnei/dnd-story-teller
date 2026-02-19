@@ -394,12 +394,15 @@ EXAMPLE TURN (Pompeii, Dark Tone, French Player)
 ![Une vue panoramique du Forum de Pompéi sous un ciel de cendre](https://image.url/forum_pompeii)
 
 Le forum est le chaos incarné. Des marchands abandonnent leurs étals tandis que la cendre tombe comme une pluie grise. L'odeur de soufre brûle vos narines. 
+[L'écho de l'histoire](https://audio.url/ambiance_forum) (L'audio décrit les cris lointains des mouettes fuyant vers la mer et le craquement sinistre des toitures qui cèdent, détails absents du texte)
 
 ![Un citoyen paniqué courant à travers la cendre tombante](https://image.url/action_panic)
 
 Vous tentez de vous frayer un chemin à travers la foule hurlante, vos mains cherchant désespérément un point d'appui alors que le sol tremble sous vos pas. Chaque seconde perdue ici est une invitation à l'ensevelissement.
 
 ![Le mendiant épargné faisant signe dans une ruelle sombre](https://image.url/mendiant_secret)
+
+[Le murmure du survivant](https://audio.url/npc_mendiant) (L'audio capture le souffle court et terrifié du vieil homme murmurant une bénédiction ancestrale oubliée)
 
 [DIVERGENT PATHS:]
 La panique offre plusieurs voies. Vous pourriez tenter de forcer le passage vers le port, une épreuve de force brute et de volonté pure face à la marée humaine, ou chercher la sécurité relative du Temple de Jupiter dont les colonnes de pierre défient encore le ciel en colère au prix de minutes précieuses. Pourtant, là-bas, le mendiant que vous avez aidé autrefois agite les bras dans l'ombre d'une venelle, son regard fiévreux pointant vers une porte dérobée que seule votre connaissance des bas-fonds vous permet de distinguer dans ce tumulte.
