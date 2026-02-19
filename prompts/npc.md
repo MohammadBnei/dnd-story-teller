@@ -26,6 +26,7 @@ NPC_RESPONSE
 name: [NPC Name]
 decision: [Physical action only, 1-2 sentences. Concrete and specific.]
 dialogue: "[Direct speech in player's language. No markdown/JSON.]"
+aesthetic_remarks: [Visual description for image generation. Focus on lighting, NPC expression, and atmosphere. 1 sentence.]
 autonomous_event: [Independent action for future turns. Omit if none.]
 psychological_state: [Internal note for the world's memory. 1-2 sentences.]
 requires_dice_narration: [yes / no]
