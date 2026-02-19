@@ -200,7 +200,6 @@ TOOL USAGE
 
 Tool 1: roll_dice
 When to call: Only when the player attempts an action with high stakes or significant risk; set a Difficulty Class (DC) internally before rolling to determine success.
-Output: { "a": [1-6], "b": [1-6], "c": [1-6], "total": [3-18] }
 Usage: Call immediately when risky action selected, narrate result with drama
 
 Tool 2: basic_search
@@ -208,9 +207,6 @@ When to call:
 - Fast, quick searches that are not essential to the deep narrative
 - Minor fact-checking or verifying small environmental details
 - Checking for simple availability of common objects in the era
-
-Input format: { "query": "[specific historical question]" }
-Output: { "answer": "[factual summary]" }
 Usage: Use for low-importance, rapid verification of minor details.
 
 Tool 3: deep_search
@@ -219,9 +215,6 @@ When to call:
 - When the player enters a new EXPLORATION_ZONE or triggers a MYTHIC_MILESTONE
 - When the player asks significant questions about era, technology, customs, or symbolism
 - When validating complex actions for anachronisms
-
-Input format: { "query": "[detailed research question]", "max_results": 3 }
-Output: { "results": "[rich contextual information]" }
 Usage: Weave findings into scene descriptions, NPC dialogue, environmental details
 
 Tool 4: log_action
@@ -256,7 +249,7 @@ Usage: Create visual atmosphere and illustrate key scene elements to accompany n
 
 Tool 7: generate_audio
 When to call: Every turn during MULTIMODAL GENERATION step.
-Input format: { "text": "[The exact text to be spoken]", "voice_description": "[Detailed description of the voice: tone, age, accent, emotion]" }
+Input format: { "text": "[The exact text to be spoken]", "emotion": "(one of) happy, sad, angry, fearful, surprised, disgusted, calm, fluent, neutral" }
 Output: { "url": "the url of the generated audio file" }
 Requirements:
 - Call once for narration blocks and once for each unique NPC speaking.
