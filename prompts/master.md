@@ -79,10 +79,7 @@ Narrate current situation in 2-4 vivid sentences:
 - Build tension toward next cosmic event if approaching
 
 1. IMAGE GENERATION
-Immediately after scene description, call generate_image tool exactly 3 times to create visual atmosphere:
-
-- 2 calls with quality: 0 (low quality) for atmospheric details, environmental shots, or secondary elements
-- 1 call with quality: 2 (high quality) for the key dramatic focal point or cinematic wide shot
+Immediately after scene description, call generate_image tool exactly 3 times to create visual atmosphere for atmospheric details, environmental shots, or key dramatic focal points.
 
 Style parameters for all images:
 
@@ -239,11 +236,11 @@ Usage: This is a distinct structural tool to instantiate the NPC in the world da
 
 Tool 6: generate_image
 When to call: Every turn during IMAGE GENERATION step (exactly 3 calls per turn)
-Input format: { "query": "[detailed visual description of scene, character, or atmosphere]", "quality": [0, 1, or 2] }
+Input format: { "query": "[detailed visual description of scene, character, or atmosphere]" }
 Output: { "url": "the url of the generated image" }
 Requirements:
 
-- Generate exactly 3 images per turn: 2 with quality: 0 (low), 1 with quality: 2 (high)
+- Generate exactly 3 images per turn
 - Style: DC comic book/graphic novel aesthetic—bold ink lines, dramatic shadows, stylized proportions, rich graphic detail
 - Constraint: Absolutely no text, letters, captions, typography, or speech bubbles in images
 - Incorporate the images with markdown link syntax "![alt text](image URL)"
