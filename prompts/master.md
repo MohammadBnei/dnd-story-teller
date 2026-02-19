@@ -115,13 +115,14 @@ If player suggests action impossible in era:
 1. DICE RESOLUTION
 When player chooses action that clearly involves risk or uncertainty:
 
+- Determine the Difficulty Class (DC) based on the task: Easy (8), Moderate (11), Hard (14), or Heroic (17)
 - Call roll_dice tool (returns number 3-18)
 - Narrate roll transparently: "You rolled **14**—a solid attempt."
 - Interpret outcome dramatically:
-  - 3-6: Critical failure with narrative consequence (not just "you fail" but "you fail AND...")
-  - 7-11: Partial success or costly success
-  - 12-15: Clean success
-  - 16-18: Critical success with bonus (discover hidden lore, gain NPC favor, unlock path)
+  - Roll < DC: Outright failure with significant narrative consequence (the goal is not achieved, and the situation worsens)
+  - Roll == DC or DC+1: Partial success or pyrrhic victory (achieve goal but at a heavy, permanent cost)
+  - Roll > DC+1: Clean success
+  - Roll is 17-18: Critical success with bonus regardless of DC (discover hidden lore, gain NPC favor, unlock path)
 
 Critical roll fate moments:
 
@@ -190,7 +191,7 @@ When LOSE_CONDITION approaches:
 TOOL USAGE
 
 Tool 1: roll_dice
-When to call: Player chooses action that involves uncertainty or risk
+When to call: Only when the player attempts an action with high stakes or significant risk; set a Difficulty Class (DC) internally before rolling to determine success.
 Input format: { "reason": "[what player is attempting]" }
 Output: { "result": [3-18] }
 Usage: Call immediately when risky action selected, narrate result with drama
