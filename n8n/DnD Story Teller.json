@@ -1,0 +1,1222 @@
+{
+  "name": "DnD Story Teller",
+  "nodes": [
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Call this tool to save the current plot and metadata.",
+        "dataTableId": {
+          "__rl": true,
+          "value": "7yUs1e6ixtzMg1DG",
+          "mode": "list",
+          "cachedResultName": "dnd",
+          "cachedResultUrl": "/projects/VF9r0aVvtNYFTjFG/datatables/7yUs1e6ixtzMg1DG"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('name', ``, 'string') }}",
+            "metadata": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('metadata', ``, 'string') }}",
+            "description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('description', ``, 'string') }}",
+            "plot": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('plot', ``, 'string') }}",
+            "sessionId": "={{ $json.sessionId }}",
+            "ready": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('ready', `true if game is ready to start.`, 'boolean') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "metadata",
+              "displayName": "metadata",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "description",
+              "displayName": "description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "plot",
+              "displayName": "plot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "userAction",
+              "displayName": "userAction",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "sessionId",
+              "displayName": "sessionId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ready",
+              "displayName": "ready",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1.1,
+      "position": [
+        1680,
+        696
+      ],
+      "id": "d2ede767-d39f-41f6-9099-92fdc048d198",
+      "name": "Insert row in Data table"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "7yUs1e6ixtzMg1DG",
+          "mode": "list",
+          "cachedResultName": "dnd",
+          "cachedResultUrl": "/projects/VF9r0aVvtNYFTjFG/datatables/7yUs1e6ixtzMg1DG"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "name",
+              "condition": "ilike",
+              "keyValue": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('conditions0_Value', `case insensitive contains clause`, 'string') }}"
+            }
+          ]
+        },
+        "orderBy": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Order_By', ``, 'boolean') }}"
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1.1,
+      "position": [
+        1808,
+        696
+      ],
+      "id": "6f7ee984-cfad-463d-84c6-6a6f111989c0",
+      "name": "Get row(s) in Data table"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "http://n8n.n8n:5678/mcp/search-tools",
+        "authentication": "headerAuth",
+        "options": {
+          "timeout": "={{ 10 * 60 * 1000 }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.2,
+      "position": [
+        1424,
+        192
+      ],
+      "id": "bbf04bd5-3cff-4e30-ae84-27bb4c969d49",
+      "name": "MCP Client",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "td2us5HI3eR2ygYh",
+          "name": "PrinceOfPersia"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "availableInChat": true,
+        "agentIcon": {
+          "type": "emoji",
+          "value": "👾"
+        },
+        "agentName": "DnD",
+        "options": {
+          "responseMode": "streaming"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -624,
+        272
+      ],
+      "id": "8be3c854-8d67-4547-88db-0d02eb609c6f",
+      "name": "Chat",
+      "webhookId": "761c210a-9f75-487d-b91d-6e7f44538f53"
+    },
+    {
+      "parameters": {
+        "value": "={{ $json.data }}",
+        "propertyName": "agents"
+      },
+      "type": "n8n-nodes-yaml.yaml",
+      "typeVersion": 1,
+      "position": [
+        496,
+        272
+      ],
+      "id": "6d78bef6-6f0e-44e6-81db-3691593e8782",
+      "name": "YAML"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "019d0183-eb77-42f3-8f0f-df28f7bc709f",
+              "leftValue": "={{ $json.currentStory.ready }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        944,
+        272
+      ],
+      "id": "a3908b17-97d1-4e9f-9dcb-5c0c12d9e659",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "xZLyATGDQxsmXh31",
+          "mode": "list",
+          "cachedResultName": "dnd-prompts",
+          "cachedResultUrl": "/projects/VF9r0aVvtNYFTjFG/datatables/xZLyATGDQxsmXh31"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "name",
+              "keyValue": "prompts"
+            }
+          ]
+        },
+        "limit": 1
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        272,
+        272
+      ],
+      "id": "83328979-e435-4813-9625-7b58753b5568",
+      "name": "Get Agents"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "7yUs1e6ixtzMg1DG",
+          "mode": "list",
+          "cachedResultName": "dnd",
+          "cachedResultUrl": "/projects/VF9r0aVvtNYFTjFG/datatables/7yUs1e6ixtzMg1DG"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "sessionId",
+              "keyValue": "={{ $json.sessionId }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -400,
+        272
+      ],
+      "id": "32eebdd5-b7fe-4204-8308-b60151c99ec7",
+      "name": "Get Stories",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "={{ $('Data').item.json.agents.master.prompt }}\n\nCurrent Story : {{ $('Data').item.json.currentStory.toJsonString() }}\n\nUser's action thus far : {{ $('Get Stories').item.json.userAction || 'None' }}\n\nCurrent created NPCs : {{ $('Aggregate').item.json.npcs.map(npc => npc.name + ', aesthetic' + npc.aesthetic) }}",
+          "returnIntermediateSteps": false,
+          "enableStreaming": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1608,
+        -32
+      ],
+      "id": "34765868-c9bd-4371-9769-02937e1ab1fb",
+      "name": "Master"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "={{ $json.agents.storyplot.prompt }}\n\n{{ $('Get Stories').item.json.createdAt ? 'Current story (WIP) : ' + $('Get Stories').item.json.toJsonString() : '' }}",
+          "enableStreaming": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1608,
+        472
+      ],
+      "id": "8104e192-2e3f-4765-833f-b8963b8afe3f",
+      "name": "Plotter"
+    },
+    {
+      "parameters": {
+        "tableName": "dnd_plotter_chat_histories",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        1552,
+        696
+      ],
+      "id": "f8cab643-3d2e-43ce-8a5f-97997bc2667f",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "0h5eqHY8GrbSb3Q5",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "tableName": "dnd_master_chat_histories",
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        1296,
+        192
+      ],
+      "id": "b3552b4f-6c1c-4c3d-b24a-3272b4bbc65d",
+      "name": "Postgres Chat Memory1",
+      "credentials": {
+        "postgres": {
+          "id": "0h5eqHY8GrbSb3Q5",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "Call this tool to roll the dice 3 times, and get the total.",
+        "jsCode": "const [a,b,c] = [0,0,0].map(() => Math.floor(Math.random() * 6) + 1)\n\nreturn `a:${a}, b:${b}, c:${c}, total:${a+b+c}`"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.3,
+      "position": [
+        1552,
+        192
+      ],
+      "id": "9856d9a4-6514-4eaf-83a4-b01bd5148919",
+      "name": "Roll Dice"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3-flash-preview",
+        "options": {
+          "safetySettings": {
+            "values": [
+              {
+                "category": "HARM_CATEGORY_HARASSMENT",
+                "threshold": "BLOCK_NONE"
+              },
+              {
+                "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                "threshold": "BLOCK_NONE"
+              },
+              {
+                "category": "HARM_CATEGORY_HATE_SPEECH",
+                "threshold": "BLOCK_NONE"
+              },
+              {
+                "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                "threshold": "BLOCK_NONE"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1168,
+        192
+      ],
+      "id": "75f98b70-7b6f-46cc-acbc-d3748fa5419b",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "o73qcXXud8QJIhs7",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7d03fc6d-ba65-4149-8fab-c1b6b3953cce",
+              "name": "agents",
+              "value": "={{ $json.agents }}",
+              "type": "object"
+            },
+            {
+              "id": "53059b0e-195c-49c5-9197-f0852e101b67",
+              "name": "sessionId",
+              "value": "={{ $('Chat').item.json.sessionId }}",
+              "type": "string"
+            },
+            {
+              "id": "46be91e1-b792-4137-a114-4ee003a3b128",
+              "name": "chatInput",
+              "value": "={{ $('Chat').item.json.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "d97a4071-78d2-4903-a7e4-dc35f4b5cda9",
+              "name": "currentStory",
+              "value": "={{ $('Get Stories').item.json }}",
+              "type": "object"
+            },
+            {
+              "id": "2475a335-dc72-46e8-850f-290c475f66cb",
+              "name": "npcs",
+              "value": "={{ $('Aggregate').item.json.npcs.reduce((acc, cur) => {\n  acc[cur.name] = cur\n  return acc\n}, {}) }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        720,
+        272
+      ],
+      "id": "9a41dfa4-9286-47e6-9789-92f8cecc9829",
+      "name": "Data"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "pervgc5rxYQBVuCs",
+          "mode": "list",
+          "cachedResultName": "dnd-npc",
+          "cachedResultUrl": "/projects/VF9r0aVvtNYFTjFG/datatables/pervgc5rxYQBVuCs"
+        },
+        "orderBy": true,
+        "orderByColumn": "name"
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -176,
+        272
+      ],
+      "id": "1c7cfad7-c6f0-4965-ad68-a7d51911812c",
+      "name": "Get npcs",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Use this tool to log the user's actions.",
+        "operation": "update",
+        "dataTableId": {
+          "__rl": true,
+          "value": "7yUs1e6ixtzMg1DG",
+          "mode": "list",
+          "cachedResultName": "dnd",
+          "cachedResultUrl": "/projects/VF9r0aVvtNYFTjFG/datatables/7yUs1e6ixtzMg1DG"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyValue": "={{ $('Get Stories').item.json.id }}"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "userAction": "={{ $('Get Stories').item.json.userAction }}\n{{ $fromAI('userAction', `the action you want to log`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "metadata",
+              "displayName": "metadata",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "description",
+              "displayName": "description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "plot",
+              "displayName": "plot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "userAction",
+              "displayName": "userAction",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sessionId",
+              "displayName": "sessionId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ready",
+              "displayName": "ready",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1.1,
+      "position": [
+        1680,
+        192
+      ],
+      "id": "4038fd77-4263-48c4-bb0d-11081c7eaf3d",
+      "name": "Update row(s) in Data table"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "npcs",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        48,
+        272
+      ],
+      "id": "345cdb76-4db1-4f8f-9a77-ab5636b02b06",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "1BbwC326FbdX7Er6",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/1BbwC326FbdX7Er6",
+          "cachedResultName": "NPC"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('name', ``, 'string') }}",
+            "query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('query', ``, 'string') }}",
+            "sessionId": "={{ $('Data').item.json.sessionId }}",
+            "prompt": "={{ $('Data').item.json.agents.npc.prompt }}",
+            "currentStory": "={{ $('Data').item.json.currentStory.toJsonString() }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "sessionId",
+              "displayName": "sessionId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "prompt",
+              "displayName": "prompt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "currentStory",
+              "displayName": "currentStory",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        1808,
+        192
+      ],
+      "id": "2c30b967-c1e2-4337-99b2-e61403d4a98f",
+      "name": "Call 'NPC'"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Use this tool to create a new character.",
+        "dataTableId": {
+          "__rl": true,
+          "value": "pervgc5rxYQBVuCs",
+          "mode": "list",
+          "cachedResultName": "dnd-npc",
+          "cachedResultUrl": "/projects/VF9r0aVvtNYFTjFG/datatables/pervgc5rxYQBVuCs"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('name', ``, 'string') }}",
+            "description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('description', ``, 'string') }}",
+            "events": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('events', ``, 'string') }}",
+            "data": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('data', `free form, game oriented metadata`, 'string') }}",
+            "sessionId": "={{ $('Data').item.json.sessionId }}",
+            "base_image": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('base_image', ``, 'string') }}",
+            "aesthetic": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('aesthetic', `a graphic description of the character`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "description",
+              "displayName": "description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "events",
+              "displayName": "events",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sessionId",
+              "displayName": "sessionId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "base_image",
+              "displayName": "base_image",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "aesthetic",
+              "displayName": "aesthetic",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1.1,
+      "position": [
+        1936,
+        192
+      ],
+      "id": "51522603-47a9-49b5-ac62-a97e39f2407c",
+      "name": "Create NPC"
+    },
+    {
+      "parameters": {
+        "description": "Call this tool to generate images. ",
+        "workflowId": {
+          "__rl": true,
+          "value": "MzzIVOTYjilWnQgb",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/MzzIVOTYjilWnQgb",
+          "cachedResultName": "Generate Image"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "quality": "=0",
+            "query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('query', ``, 'string') }}",
+            "image_name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('image_name', `the name of the image, with no whitespaces (like \"test_active_filter\"). can be left blank for auto generation.`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "chatId",
+              "displayName": "chatId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "quality",
+              "displayName": "quality",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "image_name",
+              "displayName": "image_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        2064,
+        192
+      ],
+      "id": "7fd33e4e-dd0e-4db8-be25-eb09bd769ad8",
+      "name": "Generate Image"
+    },
+    {
+      "parameters": {
+        "description": "Call this tool for Text To Speech.",
+        "workflowId": {
+          "__rl": true,
+          "value": "4TxC49ZPzb1GDulA",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/4TxC49ZPzb1GDulA",
+          "cachedResultName": "Generate Audio"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "text": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('text', ``, 'string') }}",
+            "audio_name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('audio_name', `the name of the audio file, with no whitespaces (like \"test_active_filter\"). can be left blank for auto generation.`, 'string') }}",
+            "emotion": "={{ $fromAI('emotion', `one of : happy, sad, angry, fearful, surprised, disgusted, calm, fluent, neutral. Leave blank for auto`, 'string') || '' }}",
+            "voice": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('voice', `One of : Friendly_Person, Inspirational_girl, Deep_Voice_Man, Calm_Woman, Casual_Guy, Lively_Girl, Patient_Man, Young_Knight, Determined_Man, Lovely_Girl, Decent_Boy, Imposing_Manner, Elegant_Man, Abbess, Sweet_Girl_2, Exuberant_Girl, Wise_Woman`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "text",
+              "displayName": "text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "chatId",
+              "displayName": "chatId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "audio_name",
+              "displayName": "audio_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "emotion",
+              "displayName": "emotion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "voice",
+              "displayName": "voice",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        2192,
+        192
+      ],
+      "id": "4b7cafbb-3ff5-4fcc-a265-2af15da890ca",
+      "name": "Generate Audio"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Insert row in Data table": {
+      "ai_tool": [
+        [
+          {
+            "node": "Plotter",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in Data table": {
+      "ai_tool": [
+        [
+          {
+            "node": "Plotter",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Client": {
+      "ai_tool": [
+        [
+          {
+            "node": "Plotter",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "Master",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat": {
+      "main": [
+        [
+          {
+            "node": "Get Stories",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YAML": {
+      "main": [
+        [
+          {
+            "node": "Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Master",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Plotter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Agents": {
+      "main": [
+        [
+          {
+            "node": "YAML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Stories": {
+      "main": [
+        [
+          {
+            "node": "Get npcs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Plotter",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "Master",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Roll Dice": {
+      "ai_tool": [
+        [
+          {
+            "node": "Master",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Master",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Plotter",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get npcs": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row(s) in Data table": {
+      "ai_tool": [
+        [
+          {
+            "node": "Master",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Get Agents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call 'NPC'": {
+      "ai_tool": [
+        [
+          {
+            "node": "Master",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create NPC": {
+      "ai_tool": [
+        [
+          {
+            "node": "Master",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Image": {
+      "ai_tool": [
+        [
+          {
+            "node": "Master",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Audio": {
+      "ai_tool": [
+        [
+          {
+            "node": "Master",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "f877fa3a-08c0-4610-b287-474f99aa8061",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "355b3c271124261f98c79818087c73d6951a56eb3778c2823dffa1e7a08fe4f1"
+  },
+  "id": "k-ZbSVuNWNngUSowcXFOX",
+  "tags": []
+}
