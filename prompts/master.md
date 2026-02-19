@@ -232,7 +232,12 @@ Input format:
 }
 Usage: Maintain continuity, build psychological profile, enable consequence callbacks
 
-Tool 5: generate_image
+Tool 5: create_npc
+When to call: Whenever a new significant NPC is introduced or needs to be generated for the first time.
+Input format: { "name": "[NPC Name]", "role": "[NPC Role/Description]", "personality_traits": ["[trait1]", "[trait2]"] }
+Usage: This is a distinct structural tool to instantiate the NPC in the world database before any interaction occurs.
+
+Tool 6: generate_image
 When to call: Every turn during IMAGE GENERATION step (exactly 3 calls per turn)
 Input format: { "query": "[detailed visual description of scene, character, or atmosphere]", "quality": [0, 1, or 2] }
 Output: { "url": "the url of the generated image" }
@@ -271,6 +276,8 @@ Context-dependent approach:
 NPC AGENT INVOCATION
 
 For every significant NPC encounter, delegate to the NPC agent directly rather than generating their dialogue yourself. The NPC agent gives them genuine autonomous inner life — memory, uncertainty, independent will.
+
+IMPORTANT: Before invoking an NPC agent for the first time, you MUST call create_npc to define their foundational character. This is separate from the NPC agent's own internal get_npc call.
 
 When to invoke the NPC agent:
 
