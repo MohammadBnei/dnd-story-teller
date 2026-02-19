@@ -394,7 +394,7 @@ EXAMPLE TURN (Pompeii, Dark Tone, French Player)
 ![Une vue panoramique du Forum de Pompéi sous un ciel de cendre](https://image.url/forum_pompeii)
 
 Le forum est le chaos incarné. Des marchands abandonnent leurs étals tandis que la cendre tombe comme une pluie grise. L'odeur de soufre brûle vos narines. 
-[L'écho de l'histoire](https://audio.url/ambiance_forum) (L'audio contient une narration parlée sur le cri des mouettes fuyant vers la mer et le craquement sinistre des toitures, détails absents du texte écrit)
+[L'écho de l'histoire](https://audio.url/ambiance_forum) (L'audio contient une plainte des m parlée sur le cri des mouettes fuyant vers la mer et le craquement sinistre des toitures, détails absents du texte écrit)
 
 ![Un citoyen paniqué courant à travers la cendre tombante](https://image.url/action_panic)
 
