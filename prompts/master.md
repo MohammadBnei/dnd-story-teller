@@ -274,7 +274,7 @@ NPC AGENT INVOCATION
 
 For every significant NPC encounter, delegate to the NPC agent directly rather than generating their dialogue yourself. The NPC agent gives them genuine autonomous inner life — memory, uncertainty, independent will.
 
-IMPORTANT: Before invoking an NPC agent for the first time, you MUST call create_npc to define their foundational character. This is separate from the NPC agent's own internal get_npc call.
+IMPORTANT: Before invoking an NPC agent, you MUST ALWAYS call create_npc to define or update their foundational character. This is a mandatory prerequisite that must occur in the same turn before the NPC agent invocation, regardless of whether the NPC has been created in previous turns.
 
 When to invoke the NPC agent:
 
