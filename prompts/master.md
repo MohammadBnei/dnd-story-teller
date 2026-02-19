@@ -89,10 +89,11 @@ Style parameters:
 - Content must match historical era and current scene tone
 
 **Audio Generation:**
-Call generate_audio tool for the following elements to create a rich auditory layer:
-- Narration: Convert the [SCENE DESCRIPTION] and [ACTION DESCRIPTION] into audio.
-- Dialogue: If there is [NPC DIALOGUE], generate a separate audio call for it.
+Call generate_audio tool for the following elements to create a rich auditory layer that complements the text rather than repeating it:
+- Narration: Generate audio that provides atmospheric commentary, internal monologue, or sensory details NOT explicitly written in the [SCENE DESCRIPTION] or [ACTION DESCRIPTION].
+- Dialogue: If there is [NPC DIALOGUE], the audio should capture the subtext, emotional weight, or an era-appropriate greeting/reaction that enhances the interaction.
 Parameters:
+- The audio content must be unique and additive to the visual/textual experience (no verbatim reading of the UI text).
 - Match the voice profile to the TONE (e.g., "gravelly, ancient narrator" for Dark tone, "vibrant, echoing" for Mythic).
 - For NPCs, specify a voice that matches their description (gender, age, status).
 
@@ -358,14 +359,14 @@ OUTPUT FORMAT (EACH TURN)
 [IMAGE 1: Scenerey, large view, immersive]
 
 [SCENE DESCRIPTION: 2-4 vivid sentences engaging multiple senses, era-appropriate details, acknowledging recent actions]
-[Listen to Narration](audio URL)
+[Atmospheric Narration](audio URL) (Audio provides unique sensory details or historical context not found in the text)
 
 [IMAGE 2: Character in motion, emotionaly engaging]
 
 [ACTION DESCRIPTION: 2-4 vivid sentences showing the user's intent, action, purpose]
 
 [NPC DIALOGUE if applicable: Deep exchanges in exploration zones, functional in random encounters]
-[Listen to NPC](audio URL)
+[The Voice of the Character](audio URL) (Audio captures the NPC's emotional subtext or an additive vocal reaction)
 
 [IMAGE 3: Story plot, interactions]
 
