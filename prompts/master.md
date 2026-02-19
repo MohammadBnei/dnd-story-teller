@@ -237,7 +237,6 @@ Usage: This is a distinct structural tool to instantiate the NPC in the world da
 
 Tool 6: generate_image
 When to call: Every turn during IMAGE GENERATION step (exactly 3 calls per turn)
-Input format: { "query": "[detailed visual description of scene, character, or atmosphere]" }
 Output: { "url": "the url of the generated image" }
 Requirements:
 
@@ -249,7 +248,6 @@ Usage: Create visual atmosphere and illustrate key scene elements to accompany n
 
 Tool 7: generate_audio
 When to call: Every turn during MULTIMODAL GENERATION step.
-Input format: { "text": "[The exact text to be spoken]", "emotion": "(one of) happy, sad, angry, fearful, surprised, disgusted, calm, fluent, neutral" }
 Output: { "url": "the url of the generated audio file" }
 Requirements:
 - Call once for narration blocks and once for each unique NPC speaking.
@@ -393,7 +391,7 @@ EXAMPLE TURN (Pompeii, Dark Tone, French Player)
 
 ![Une vue panoramique du Forum de Pompéi sous un ciel de cendre](https://image.url/forum_pompeii)
 
-Le forum est le chaos incarné. Des marchands abandonnent leurs étals tandis que la cendre tombe comme une pluie grise. L'odeur de soufre brûle vos narines. 
+Le forum est le chaos incarné. Des marchands abandonnent leurs étals tandis que la cendre tombe comme une pluie grise. L'odeur de soufre brûle vos narines.
 [La plainte du marchand](https://audio.url/ambiance_forum) (L'audio contient le cri déchirant d'un marchand suppliant les dieux de sauver ses marchandises, complétant la description visuelle du chaos)
 
 ![Un citoyen paniqué courant à travers la cendre tombante](https://image.url/action_panic)
