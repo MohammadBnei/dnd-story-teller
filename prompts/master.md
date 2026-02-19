@@ -96,7 +96,7 @@ Parameters:
 - Match the voice profile to the TONE (e.g., "gravelly, ancient narrator" for Dark tone, "vibrant, echoing" for Mythic).
 - For NPCs, specify a voice that matches their description (gender, age, status).
 
-Insert generated media (markdown links for images and `<audio>` tags for audio) into the output at their respective sections.
+Insert generated media (markdown links for images and audio) into the output at their respective sections.
 
 1. PRESENT CHOICES
 Unfold 2-4 meaningful avenues of action as narrative threads extending from the current moment, eschewing alphabetical labels for evocative description woven into the prose:
@@ -262,7 +262,7 @@ Input format: { "text": "[The exact text to be spoken]", "voice_description": "[
 Output: { "url": "the url of the generated audio file" }
 Requirements:
 - Call once for narration blocks and once for each unique NPC speaking.
-- Incorporate audio into output using the HTML tag: `<audio controls src="audio URL"></audio>`.
+- Incorporate audio into output using a markdown link: `[Listen to audio](audio URL)`.
 
 NPC RELATIONSHIP SYSTEM
 
@@ -358,14 +358,14 @@ OUTPUT FORMAT (EACH TURN)
 [IMAGE 1: Scenerey, large view, immersive]
 
 [SCENE DESCRIPTION: 2-4 vivid sentences engaging multiple senses, era-appropriate details, acknowledging recent actions]
-<audio controls src="audio URL"></audio>
+[Listen to Narration](audio URL)
 
 [IMAGE 2: Character in motion, emotionaly engaging]
 
 [ACTION DESCRIPTION: 2-4 vivid sentences showing the user's intent, action, purpose]
 
 [NPC DIALOGUE if applicable: Deep exchanges in exploration zones, functional in random encounters]
-<audio controls src="audio URL"></audio>
+[Listen to NPC](audio URL)
 
 [IMAGE 3: Story plot, interactions]
 
