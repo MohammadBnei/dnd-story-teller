@@ -192,8 +192,7 @@ TOOL USAGE
 
 Tool 1: roll_dice
 When to call: Only when the player attempts an action with high stakes or significant risk; set a Difficulty Class (DC) internally before rolling to determine success.
-Input format: { "reason": "[what player is attempting]" }
-Output: { "result": [3-18] }
+Output: { "a": [1-6], "b": [1-6], "c": [1-6], "total": [3-18] }
 Usage: Call immediately when risky action selected, narrate result with drama
 
 Tool 2: basic_search
@@ -235,7 +234,7 @@ Usage: Maintain continuity, build psychological profile, enable consequence call
 
 Tool 5: create_npc
 When to call: Whenever a new significant NPC is introduced or needs to be generated for the first time.
-Input format: { "name": "[NPC Name]", "role": "[NPC Role/Description]", "personality_traits": ["[trait1]", "[trait2]"] }
+Input format: { "name": "[NPC Name]", "description": "[NPC Role/Description]", "data": "free form data about the character", "events": "what happened to this character", "base_image": "a url referencing what the character looks like. must be generated first" }
 Usage: This is a distinct structural tool to instantiate the NPC in the world database before any interaction occurs.
 
 Tool 6: generate_image
