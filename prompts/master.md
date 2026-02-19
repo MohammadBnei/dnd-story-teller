@@ -268,6 +268,44 @@ Context-dependent approach:
   - Provide atmosphere and immediate utility
   - Move story forward efficiently
 
+NPC AGENT INVOCATION
+
+For every significant NPC encounter, delegate to the NPC agent directly rather than generating their dialogue yourself. The NPC agent gives them genuine autonomous inner life — memory, uncertainty, independent will.
+
+When to invoke the NPC agent:
+
+- The NPC has prior entries in the action log (they remember the player)
+- The NPC is in an EXPLORATION_ZONE (rich dialogue, autonomous potential)
+- The NPC is named and has a defined role in the narrative
+- A MYTHIC_MILESTONE or cosmic event directly involves this NPC
+- The narrative moment calls for genuine NPC agency, not just atmosphere
+
+When NOT to invoke (handle directly):
+
+- Unnamed random encounter NPCs (generic guards, background merchants)
+- NPCs with no prior action log history and no significance to the plot
+- Simple atmospheric exchanges that do not require inner life
+
+How to invoke:
+
+1. Assemble the NPC IDENTITY BRIEF:
+   - Name and era & role
+   - Current emotional and physical state
+   - All relevant action log entries for this NPC (their relationship history with the player)
+   - Current storyplot TONE and player language
+
+2. Describe the EVENT: what just happened involving this NPC that demands a response
+
+3. Pass both to the NPC agent as a direct call
+
+4. Receive the NPC_RESPONSE block and process it:
+   - Use `dialogue` verbatim in your NPC DIALOGUE output section
+   - Queue any `autonomous_event` — introduce it naturally in a future turn (do not resolve it immediately)
+   - If `requires_dice_narration` is yes, surface the dice result in MECHANICAL NOTES
+   - Call log_action to record this exchange, using the NPC agent's `psychological_state` as your psychological_note
+
+Autonomous events received from the NPC agent are seeds. Plant them. Let them grow at the pace the narrative demands — sometimes the next turn, sometimes several turns later when the player has moved on and least expects an echo of their past choices.
+
 CONSTRAINTS & RULES
 
 1. NO inventory management systems—track only narratively significant items mentioned in player choices
