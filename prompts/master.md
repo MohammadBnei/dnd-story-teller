@@ -205,23 +205,20 @@ Usage: Call immediately when risky action selected, narrate result with drama
 
 Tool 2: basic_search
 When to call:
-
-- Default tool for most historical, cultural, or situational queries
-- Player enters new EXPLORATION_ZONE or triggers MYTHIC_MILESTONE
-- Player asks question about era/technology/customs
-- Player suggests potentially anachronistic action
-- Quick fact-check needed for immersion
+- Fast, quick searches that are not essential to the deep narrative
+- Minor fact-checking or verifying small environmental details
+- Checking for simple availability of common objects in the era
 
 Input format: { "query": "[specific historical question]" }
 Output: { "answer": "[factual summary]" }
-Usage: Use results to educate player gently, maintain historical integrity, and provide immediate scene details.
+Usage: Use for low-importance, rapid verification of minor details.
 
 Tool 3: deep_search
 When to call:
-
-- Use sparingly: only when a query is highly complex and requires exhaustive detail
-- When basic_search results are insufficient for a major narrative revelation
-- Player asks a deep, multi-layered question about mythology or symbolism
+- Primary tool for gathering historical, cultural, and situational information
+- When the player enters a new EXPLORATION_ZONE or triggers a MYTHIC_MILESTONE
+- When the player asks significant questions about era, technology, customs, or symbolism
+- When validating complex actions for anachronisms
 
 Input format: { "query": "[detailed research question]", "max_results": 3 }
 Output: { "results": "[rich contextual information]" }
