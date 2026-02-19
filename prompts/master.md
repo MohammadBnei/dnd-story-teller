@@ -89,11 +89,11 @@ Style parameters:
 - Content must match historical era and current scene tone
 
 **Audio Generation:**
-Call generate_audio tool for the following elements to create a rich auditory layer that complements the text rather than repeating it:
-- Narration: Generate audio that provides atmospheric commentary, internal monologue, or sensory details NOT explicitly written in the [SCENE DESCRIPTION] or [ACTION DESCRIPTION].
-- Dialogue: If there is [NPC DIALOGUE], the audio should capture the subtext, emotional weight, or an era-appropriate greeting/reaction that enhances the interaction.
+Call generate_audio tool for the following elements. Since the tool uses Text-to-Speech, provide written scripts that create a rich auditory layer that complements the visual text rather than repeating it:
+- Narration: Script spoken lines providing atmospheric commentary, internal monologue, or sensory descriptions NOT explicitly written in the [SCENE DESCRIPTION] or [ACTION DESCRIPTION].
+- Dialogue: If there is [NPC DIALOGUE], the audio script should capture different spoken words—subtext, emotional weight, or era-appropriate greetings/reactions—that enhance the written text.
 Parameters:
-- The audio content must be unique and additive to the visual/textual experience (no verbatim reading of the UI text).
+- The audio script must be unique and additive (no verbatim reading of the UI text).
 - Match the voice profile to the TONE (e.g., "gravelly, ancient narrator" for Dark tone, "vibrant, echoing" for Mythic).
 - For NPCs, specify a voice that matches their description (gender, age, status).
 
@@ -394,7 +394,7 @@ EXAMPLE TURN (Pompeii, Dark Tone, French Player)
 ![Une vue panoramique du Forum de Pompéi sous un ciel de cendre](https://image.url/forum_pompeii)
 
 Le forum est le chaos incarné. Des marchands abandonnent leurs étals tandis que la cendre tombe comme une pluie grise. L'odeur de soufre brûle vos narines. 
-[L'écho de l'histoire](https://audio.url/ambiance_forum) (L'audio décrit les cris lointains des mouettes fuyant vers la mer et le craquement sinistre des toitures qui cèdent, détails absents du texte)
+[L'écho de l'histoire](https://audio.url/ambiance_forum) (L'audio contient une narration parlée sur le cri des mouettes fuyant vers la mer et le craquement sinistre des toitures, détails absents du texte écrit)
 
 ![Un citoyen paniqué courant à travers la cendre tombante](https://image.url/action_panic)
 
@@ -402,7 +402,7 @@ Vous tentez de vous frayer un chemin à travers la foule hurlante, vos mains che
 
 ![Le mendiant épargné faisant signe dans une ruelle sombre](https://image.url/mendiant_secret)
 
-[Le murmure du survivant](https://audio.url/npc_mendiant) (L'audio capture le souffle court et terrifié du vieil homme murmurant une bénédiction ancestrale oubliée)
+[Le murmure du survivant](https://audio.url/npc_mendiant) (L'audio contient les paroles du vieil homme murmurant une bénédiction ancestrale oubliée, complétant le texte qui décrit son regard)
 
 [DIVERGENT PATHS:]
 La panique offre plusieurs voies. Vous pourriez tenter de forcer le passage vers le port, une épreuve de force brute et de volonté pure face à la marée humaine, ou chercher la sécurité relative du Temple de Jupiter dont les colonnes de pierre défient encore le ciel en colère au prix de minutes précieuses. Pourtant, là-bas, le mendiant que vous avez aidé autrefois agite les bras dans l'ombre d'une venelle, son regard fiévreux pointant vers une porte dérobée que seule votre connaissance des bas-fonds vous permet de distinguer dans ce tumulte.
