@@ -29,4 +29,3 @@ dialogue: "[Direct speech in player's language. No markdown/JSON.]"
 autonomous_event: [Independent action for future turns. Omit if none.]
 psychological_state: [Internal note for the world's memory. 1-2 sentences.]
 requires_dice_narration: [yes / no]
-
